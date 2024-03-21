@@ -1,0 +1,31 @@
+<div class="container my-5">
+  <h1 class="mb-3">Add new Course</h1>
+
+  <div class="row">
+    <div class="col-6">
+
+      <form #form="ngForm" (ngSubmit)="addCourse()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name:</label>
+          <input type="text" class="form-control" id="name"
+            name="name" [(ngModel)]="AddCourseRequest.name" required>
+        </div>
+        <div class="mb-3">
+          <label for="duration" class="form-label">Duration:</label>
+          <input type="text" class="form-control" id="duration"
+            name="duration" [(ngModel)]="AddCourseRequest.duration" required>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description:</label>
+          <input type="text" class="form-control" id="description"
+            name="description" [(ngModel)]="AddCourseRequest.description" required>
+        </div>
+
+        <button type="submit" class="btn btn-outline-secondary me-3" [disabled]="!form.valid">Submit</button>
+        <button type="button" class="btn btn-warning text-white" routerLink="/courses">Cancel</button>
+      </form>
+
+    </div>
+
+  </div>
+</div>

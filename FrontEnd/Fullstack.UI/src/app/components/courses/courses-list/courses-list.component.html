@@ -1,0 +1,32 @@
+<div class="container my-5">
+    <h1 class="mb-3">Courses</h1>
+
+    <table class="table table-striped" *ngIf="courses && courses.length > 0">
+        <thead>
+            <tr>
+                <!-- <th>ID</th> -->
+                <th>Name</th>
+                <th>Duration</th>
+                <th>Description</th>
+                <th></th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let course of courses">
+                <!-- <td>{{course.id}}</td> -->
+                <td>{{course.name}}</td>
+                <td>{{course.duration}}</td>
+                <td>{{course.description}}</td>
+                
+                
+                <div class="text-end">
+                    <button type="button" class="btn btn-info text-white me-3" [routerLink]="['/courses', 'edit', course.id]">Edit</button>
+                    <button type="button" class="btn btn-danger" (click)="deleteCourse(course.id)">Delete</button>
+                  </div>
+            </tr>
+
+        </tbody>
+    </table>
+    <p *ngIf="!courses || courses.length <= 0">No courses found</p>
+</div>
